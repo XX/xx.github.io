@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>3D SokoBan game</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/gl-matrix-min.js"></script>
+        <script type="text/javascript" src="js/webgl-utils.js"></script>
+        <script type="text/javascript" src="js/sokoban.js"></script>
+        <!-- <script type="text/javascript" src="sokoban/src/main.js"></script> -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <script type="text/javascript">            
+            function gameInit() {
+
+                // Calculate canvas size
+                var width = window.innerWidth - 10;
+                var height = window.innerHeight - 20;               
+                width = width > 800 || width <= 0 ? 800 : width;
+                height = height > 600 || height <= 0 ? 600 : height;
+                
+                var canvas = document.getElementById('game-canvas');
+                canvas.width  = width;
+                canvas.height = height;
+                
+                // To fixed div-over-canvas bug of some Cromium browsers
+                var controlInfo = document.getElementById('game-control-info');
+                controlInfo.style.marginTop = height - 50 + "px";
+                
+                // Positioning game info block
+                var gameInfo = document.getElementById('game-info');
+                gameInfo.style.marginTop = Math.round((height - gameInfo.offsetHeight) / 2) - 15 + "px";
+                gameInfo.style.marginLeft = Math.round((width - gameInfo.offsetWidth) / 2) - 15 + "px";
+                
+                sokoban.main({
+                    gamePath: "",
+                    libPath: "/js",
+                    resPath: "",
+                    canvasId: "game-canvas",
+                    levelNumberIds: ["level-number", "info-level-number"],
+                    levelMovingsId: "level-movings",
+                    totalMovingsId: "total-movings",
+                    messageId: "game-info"
+                });
+            }
+        </script>
+    </head>
+    
+    <body onload="gameInit();">
+
+        <div id="container">
+            
+            <div id="game-score-info" class="gameText">
+                Level: <span id="level-number">0</span>&nbsp;&nbsp;
+                moves: <span id="level-movings">0</span>&nbsp;&nbsp;
+                total: <span id="total-movings">0</span>
+            </div>
+            
+            <div id="game-control-info" class="gameText">
+                [<strong>A</strong>] [<strong>D</strong>] [<strong>W</strong>] [<strong>S</strong>] or
+                [<strong>←</strong>] [<strong>→</strong>] [<strong>↑</strong>] [<strong>↓</strong>] - move Doker<br/>
+                [<strong>Enter</strong>] - next level, [<strong>Backspace</strong>] - reset level<br/>
+                [<strong>Left mouse</strong>] - rotate, [<strong>Middle mouse</strong>] or
+                [<strong>PgUp</strong>] [<strong>PgDn</strong>] - zoom, [<strong>Space</strong>] - return camera<br/>
+            </div>
+            
+            <div id="game-info">
+                <div style="text-align: center">
+                    Level <strong><span id="info-level-number">0</span></strong> completed<br/>
+                    Press [<strong>Enter</strong>] to continue
+                </div>
+            </div>
+            
+            <canvas id="game-canvas"></canvas>
+            
+        </div>
+    </body>
+    
+</html> 
+ 

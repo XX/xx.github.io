@@ -1,0 +1,48 @@
+html, body {
+  width:  100%;
+  height: 100%;
+  margin: 0px;
+}
+
+#container {
+    display: table;
+    margin: 0 auto;
+    padding: 5px
+}
+
+.gameText {
+    font-size: 9pt;
+    color: #004400;
+    padding-left: 5px;
+    position: absolute;
+    z-index: 2;
+}
+
+#game-score-info {
+    padding-top: 5px;
+}
+
+#level-number, #level-movings, #total-movings {
+    font-weight: bold;
+}
+
+#game-info-background {
+    background: #004400;
+    opacity: 0.5;
+}
+
+#game-info {
+    padding: 15px;
+    border: 1px #004400 solid;
+    background-color: rgba(0, 77, 0, 0.7);
+    font-size: 12pt;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    visibility: hidden;
+}
+
+#game-canvas {
+    border: none;
+    z-index: 1;
+}
