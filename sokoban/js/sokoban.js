@@ -41,7 +41,7 @@ var sokoban = (function() {
             init();
             setTimeout(function() {
                 loop();
-            }, 100);
+            }, 1000);
         };
         
         function loop() {
