@@ -229,10 +229,11 @@ var sokoban = (function() {
             if (event.keyCode === 32) {
                 cameraPosition();
             }
-            // Backspace
-            if (event.keyCode === 8) {
+            // Backspace or R
+            if (event.keyCode === 8 || event.keyCode === 82) {
                 levels[currentLevelIndex].reset();
                 setLevelMovementsText();
+                showCompleteMessage(false);
             }
         }
 
