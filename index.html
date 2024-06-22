@@ -1,1 +1,31 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switch Content</title>
+</head>
+<body>
+    <div id="content">
+        <script>
+            document.getElementById("content").style.display = "none";
+        </script>
+        <div id="inner">
+            <h1>Blog post example</h1>
+
+            <p>This is the content of the blog post. It is an example of the use of JS to switch content.</p>
+
+            <button>Click to action</button>
+        </div>
+    </div>
+    <div>Hello World!</div>
+    <div id="new"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var innerContent = document.getElementById('inner');
+                document.getElementById('new').innerHTML = innerContent.innerHTML;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
